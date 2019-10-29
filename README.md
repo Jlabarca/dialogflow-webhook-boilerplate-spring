@@ -1,5 +1,12 @@
 # dialogflow-webhook-boilerplate-spring
-Webhook Boilerplate (using Dialogflow) in Java Spring 
+###Spring Boot + MyBatis + Google Actions + Lombok + PostgreSQL
+
+Webhook for Dialogflow inside a Java Spring boot application
+
+-DialogflowWebhookController class only redirects requests to a DialogFlowApp
+-MyDialogFlowApp used as a Spring Component allow us to use Spring
+-DB handled with myBatis but everything in this example is aplicable to hibernate too
+
 
 # Actions on Google: Webhook Boilerplate
 
