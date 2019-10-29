@@ -1,54 +1,12 @@
 # dialogflow-webhook-boilerplate-spring
-###Spring Boot + MyBatis + Google Actions + Lombok + PostgreSQL
 
 Webhook for Dialogflow inside a Java Spring boot application
+##### Spring Boot + MyBatis + Google Actions + Lombok + PostgreSQL
+1. DialogflowWebhookController class only redirects requests to a DialogFlowApp
+1. MyDialogFlowApp used as a Spring Component allow us to use Spring
+1. DB handled with myBatis but everything in this example is aplicable to hibernate too
 
--DialogflowWebhookController class only redirects requests to a DialogFlowApp
--MyDialogFlowApp used as a Spring Component allow us to use Spring
--DB handled with myBatis but everything in this example is aplicable to hibernate too
-
-
-# Actions on Google: Webhook Boilerplate
-
-Boilerplate to help you get started quickly with the Java client library for Actions on Google.
-
-### Setup Instructions
-
-#### Action Configuration
-1. From the [Actions on Google Console](https://console.actions.google.com/), New project (this will become your *Project ID*) > **Create Project**.
-1. Scroll down to the **More Options** section, and click on the **Conversational** card.
-1. From the top menu under **Develop** > **Actions** (left nav) > **Add your first action** > **BUILD** (this will bring you to the Dialogflow console) > Select language and time zone > **CREATE**.
-1. In Dialogflow, go to **Settings** ⚙ > **Export and Import** > **Restore from zip**.
-    + Follow the directions to restore from the `agent.zip` file in this repo.
-
-#### App Engine Deployment & Webhook Configuration
-When a new project is created using the Actions Console, it also creates a Google Cloud project in the background.
-1. Delete ActionsAWSHandler.java
-1. Remove the following line from build.gradle:
-     + `apply from: 'build-aws.gradle'`
-1. Download & install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/)
-1. Configure the gcloud CLI and set your Google Cloud project to the name of your Actions on Google Project ID, which you can find from the [Actions on Google console](https://console.actions.google.com/) under Settings ⚙
-    + `gcloud init`
-    + `gcloud auth application-default login`
-    + `gcloud components install app-engine-java`
-    + `gcloud components update`
-1. Deploy to [App Engine using Gradle](https://cloud.google.com/appengine/docs/flexible/java/using-gradle):
-    + `gradle appengineDeploy` OR
-    +  From within IntelliJ, open the Gradle tray and run the appEngineDeploy task.
-1. Back in the [Dialogflow console](https://console.dialogflow.com), from the left navigation menu under **Fulfillment** > **Enable Webhook**, set the value of **URL** to `https://<YOUR_PROJECT_ID>.appspot.com` > **Save**.
-
-#### Build for AWS
-1. Delete ActionsServlet
-1. Remove the following line from build.gradle:
-    + `apply from: 'build-gcp.gradle'`
-1. Build the AWS Lambda compatible zip file using the buildAWSZip gradle task: `gradle buildAWSZip`
-1. Deploy the zip file found at `build/distributions/myactions.zip` as an AWS Lambda function by following instructions at https://aws.amazon.com/lambda/
-
-#### Testing this Sample
-+ In the [Dialogflow console](https://console.dialogflow.com), from the left navigation menu > **Integrations** > **Integration Settings** under Google Assistant > Enable **Auto-preview changes** >  **Test** to open the Actions on Google simulator. **OR**
-+ Type `Talk to my test app` in the simulator, or say `OK Google, talk to my test app` to Google Assistant on a mobile device associated with your Action's account.
-
-### References & Issues
+### Google actions References & Issues
 + Questions? Go to [StackOverflow](https://stackoverflow.com/questions/tagged/actions-on-google), [Assistant Developer Community on Reddit](https://www.reddit.com/r/GoogleAssistantDev/) or [Support](https://developers.google.com/actions/support/).
 + For bugs, please report an issue on Github.
 + Actions on Google [Documentation](https://developers.google.com/actions/extending-the-assistant)
